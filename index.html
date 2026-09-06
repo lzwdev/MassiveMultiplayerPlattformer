@@ -1,1 +1,257 @@
 
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weiterleitung · Massive Multiplayer Platformer v1</title>
+    <!-- 
+        Diese Seite leitet automatisch zur Datei "Massive Multiplayer Platformer v1.html" weiter.
+        Falls die Datei nicht im gleichen Ordner liegt, bitte den Pfad anpassen.
+    -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0b1a2f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            color: #e8f0f8;
+            padding: 1.5rem;
+        }
+
+        .card {
+            background: #1a2f3f;
+            max-width: 700px;
+            width: 100%;
+            padding: 3rem 2.5rem;
+            border-radius: 48px;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.7), inset 0 1px 3px rgba(255, 255, 255, 0.08);
+            text-align: center;
+            border: 1px solid #3f6a84;
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.01);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #a3d0f0, #6eb4e6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 20px rgba(80, 160, 255, 0.2);
+        }
+
+        .sub {
+            font-size: 1.1rem;
+            color: #9bbfd9;
+            border-bottom: 1px dashed #3a5f7a;
+            padding-bottom: 0.75rem;
+            margin-bottom: 2rem;
+            display: inline-block;
+        }
+
+        .loader {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin: 2rem 0 1.8rem 0;
+        }
+
+        .dot {
+            width: 18px;
+            height: 18px;
+            background: #5f9fd0;
+            border-radius: 50%;
+            animation: bounce 1.4s infinite ease-in-out both;
+            box-shadow: 0 4px 12px rgba(50, 150, 255, 0.3);
+        }
+
+        .dot:nth-child(1) { animation-delay: -0.32s; background: #7bb8e6; }
+        .dot:nth-child(2) { animation-delay: -0.16s; background: #5a9fd4; }
+        .dot:nth-child(3) { animation-delay: 0s; background: #3f8bc4; }
+
+        @keyframes bounce {
+            0%, 80%, 100% { transform: scale(0.6); opacity: 0.5; }
+            40% { transform: scale(1); opacity: 1; }
+        }
+
+        .info-box {
+            background: #0f2537;
+            padding: 1.2rem 1.8rem;
+            border-radius: 60px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            border: 1px solid #3f7b9c;
+            margin-top: 0.5rem;
+            backdrop-filter: blur(2px);
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.4);
+        }
+
+        .info-box span {
+            font-weight: 500;
+            color: #b6d7f0;
+        }
+
+        .file-name {
+            background: #1f3f55;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            font-family: 'Courier New', monospace;
+            font-weight: 600;
+            color: #d4edff;
+            letter-spacing: 0.5px;
+            border: 1px solid #5487a8;
+        }
+
+        .btn-manual {
+            display: inline-block;
+            margin-top: 2rem;
+            background: #e2584b;
+            color: white;
+            font-weight: 700;
+            padding: 0.9rem 2.8rem;
+            border-radius: 60px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            box-shadow: 0 6px 0 #7a2e26, 0 6px 20px rgba(0,0,0,0.4);
+            transition: 0.08s linear;
+            border: 1px solid #ff8a7a;
+            letter-spacing: 0.3px;
+        }
+
+        .btn-manual:active {
+            transform: translateY(6px);
+            box-shadow: 0 0px 0 #7a2e26;
+        }
+
+        .btn-manual:hover {
+            background: #f06b5e;
+        }
+
+        .hint {
+            margin-top: 2.2rem;
+            font-size: 0.9rem;
+            color: #7fa1bb;
+            background: #0f1f2d;
+            padding: 0.6rem 1.2rem;
+            border-radius: 40px;
+            display: inline-block;
+            border: 1px solid #2a4b62;
+        }
+
+        .hint code {
+            background: #1a3142;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            color: #b3daf5;
+            font-weight: 600;
+        }
+
+        /* kleine responsive Anpassungen */
+        @media (max-width: 550px) {
+            .card { padding: 2rem 1.5rem; }
+            h1 { font-size: 1.7rem; }
+            .file-name { font-size: 0.9rem; }
+            .btn-manual { padding: 0.7rem 2rem; font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>🚀 Massive Multiplayer</h1>
+        <div class="sub">Platformer v1</div>
+
+        <!-- Ladeanimation -->
+        <div class="loader">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+
+        <!-- Ziel-Datei Anzeige -->
+        <div class="info-box">
+            <span>📁 Ziel:</span>
+            <span class="file-name">Massive Multiplayer Platformer v1.html</span>
+        </div>
+
+        <!-- Manueller Klick-Button (Fallback) -->
+        <a href="Massive Multiplayer Platformer v1.html" class="btn-manual" id="directLink">
+            ⚡ Jetzt starten
+        </a>
+
+        <div class="hint">
+            💡 <code>Automatische Weiterleitung</code> – falls nichts passiert, klicke den Button.
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            "use strict";
+
+            // Ziel-Datei (relativer Pfad – gleiches Verzeichnis wie diese HTML)
+            const TARGET = "Massive Multiplayer Platformer v1.html";
+
+            // 1. Versuche sofort weiterzuleiten (mit kleiner Verzögerung, damit der Browser die Seite rendern kann)
+            function redirect() {
+                // Prüfen, ob das Ziel eine gültige URL ist (kein leerer String)
+                if (!TARGET || TARGET.trim() === "") {
+                    console.warn("Weiterleitungsziel ist leer – bitte den Pfad in TARGET setzen.");
+                    return;
+                }
+
+                // Option 1: Mit window.location.replace (kein Eintrag im Browser-Verlauf)
+                // Das ist sauber, aber falls die Datei nicht existiert, bleibt der Nutzer auf dieser Seite.
+                try {
+                    window.location.replace(TARGET);
+                } catch (e) {
+                    // Fallback: location.href
+                    window.location.href = TARGET;
+                }
+            }
+
+            // Warte kurz, damit der Nutzer die Seite kurz sieht (bessere UX)
+            // 800ms wirken flüssig und zeigen die Info.
+            setTimeout(redirect, 800);
+
+            // 2. Falls der Benutzer den Button klickt – sofortige Weiterleitung (ohne Verzögerung)
+            const btn = document.getElementById('directLink');
+            if (btn) {
+                btn.addEventListener('click', function(e) {
+                    // Standardverhalten des Links verhindern (wir steuern selbst)
+                    e.preventDefault();
+                    // Sofort weiterleiten (mit replace oder href)
+                    window.location.href = TARGET;
+                });
+            }
+
+            // 3. Kleiner Fallback: falls die Weiterleitung aus irgendeinem Grund blockiert wird
+            // (z.B. durch Browser-Einstellungen), kann der Nutzer den Button nutzen.
+            // Zusätzlich: Wenn nach 4 Sekunden noch nichts passiert ist, zeigen wir einen Hinweis im Konsolen-Log.
+            setTimeout(function() {
+                // Prüfen, ob die Seite immer noch diese URL ist (nicht weitergeleitet)
+                if (window.location.href.indexOf(window.location.pathname) !== -1) {
+                    // Nur ein dezenter Hinweis – der Button ist ja sichtbar.
+                    console.log("⏳ Weiterleitung verzögert – klicke 'Jetzt starten' falls nötig.");
+                }
+            }, 3500);
+
+        })();
+    </script>
+</body>
+</html>
